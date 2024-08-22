@@ -21,9 +21,12 @@ Usage:
 Examples:
 ./zp-crack crack -i 10.1.2.5:3306
 ./zp-crack crack -i 10.1.2.6:3307---mysql
+./zp-crack crack -i 10.1.2.7:7001---weblogic
+./zp-crack crack -i 10.1.2.8:443---gitlab
 ./zp-crack crack -i 10.1.2.5:3306,10.1.2.6:3307---mysql
 ./zp-crack crack -f input.txt
 ./zp-crack crack -f input.txt --proxy socks5://127.0.0.1:8888
+./zp-crack crack -f input.txt --proxy socks5://admin:admin@127.0.0.1:8888
 
 Flags:
       --crack-all           crack all user and pass
