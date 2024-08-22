@@ -1,17 +1,17 @@
 ## zp-crack
 ### Overview
-Security engine command line tool - crack
+`zp-crack` is a powerful command-line tool designed for security professionals and researchers. It facilitates the cracking of various services, enabling users to test the strength of passwords across multiple protocols.
 ### Features
-- Supported Services
+- **Supported Services**
   - ftp, ssh, telnet, smtp, httpbasic, pop3, wmi, imap, snmp, ldap, smb, smtpssl, rtsp, rsync, imapssl, pop3ssl, socks5, sqlserver, oracle, mqtt, mysql, rdp, postgresql, amqp, vnc, winrm, redis, memcached, mongodb, tomcat, weblogic, jenkins, gitlab, nacos, nexus, svn
-- Flexible Service Input
-  - use default port-service(example: -i 10.1.2.5:3306)
-  - manually set the service(example: -i 10.1.2.6:3307---mysql)
-- Proxy Support
-  - socks5
-- Dynamic Password Replacement
-  - password that contains %user% will be replaced by the corresponding username.
-### Download
+- **Flexible Service Input**
+  - Default Port-Service Format: Use the default port-service format when specifying an IP address (e.g., `-i 10.1.2.5:3306`). This format must correspond to the services listed in the **Default Port-Service Mapping** section.
+  - Manual Service Specification: You can manually specify the service if it differs from the default (e.g., -i `10.1.2.6:3307---mysql`). Ensure that the specified service is included in the **Supported Services** list.
+- **Proxy Support**
+  - SOCKS5 proxy support for enhanced anonymity during operations.
+- **Dynamic Password Replacement**
+  - Passwords containing `%user%` will be dynamically replaced with the corresponding username.
+### Installation
 https://github.com/niudaii/zp-crack/releases
 ### Usage
 ```
@@ -23,6 +23,7 @@ Examples:
 ./zp-crack crack -i 10.1.2.6:3307---mysql
 ./zp-crack crack -i 10.1.2.5:3306,10.1.2.6:3307---mysql
 ./zp-crack crack -f input.txt
+./zp-crack crack -f input.txt --proxy socks5://127.0.0.1:8888
 
 Flags:
       --crack-all           crack all user and pass
@@ -44,39 +45,40 @@ Global Flags:
       --level string         logger level(debug|info|error) (default "debug")
   -o, --output-file string   output file to write results (default "output.json")
 ```
-### Default port-service
-```
-21:    plugins.FTP,
-22:    plugins.SSH,
-23:    plugins.TELNET,
-25:    plugins.SMTP,
-80:    plugins.HTTPBASIC,
-110:   plugins.POP3,
-135:   plugins.WMI,
-143:   plugins.IMAP,
-161:   plugins.SNMP,
-389:   plugins.LDAP,
-445:   plugins.SMB,
-465:   plugins.SMTPSSL,
-554:   plugins.RTSP,
-873:   plugins.RSYNC,
-993:   plugins.IMAPSSL,
-995:   plugins.POP3SSL,
-1080:  plugins.SOCKS5,
-1433:  plugins.SQLSERVER,
-1521:  plugins.ORACLE,
-1883:  plugins.MQTT,
-3306:  plugins.MYSQL,
-3389:  plugins.RDP,
-5432:  plugins.POSTGRES,
-5672:  plugins.AMQP,
-5900:  plugins.VNC,
-5985:  plugins.WINRM,
-6379:  plugins.REDIS,
-11211: plugins.MEMCACHED,
-27017: plugins.MONGODB,
-```
+### Default Port-Service Mapping
+
+| Port  | Service    |
+| ----- | ---------- |
+| 21    | ftp        |
+| 22    | ssh        |
+| 23    | telnet     |
+| 25    | smtp       |
+| 80    | httpbasic  |
+| 110   | pop3       |
+| 135   | wmi        |
+| 143   | imap       |
+| 161   | snmp       |
+| 389   | ldap       |
+| 445   | smb        |
+| 465   | smtpssl    |
+| 554   | rtsp       |
+| 873   | rsync      |
+| 993   | imapssl    |
+| 995   | pop3ssl    |
+| 1080  | socks5     |
+| 1433  | sqlserver  |
+| 1521  | oracle     |
+| 1883  | mqtt       |
+| 3306  | mysql      |
+| 3389  | rdp        |
+| 5432  | postgresql |
+| 5672  | amqp       |
+| 5900  | vnc        |
+| 5985  | winrm      |
+| 6379  | redis      |
+| 11211 | memcached  |
+| 27017 | mongodb    |
 ### Source Code Status
-Due to certain reasons, I am unable to open source the code at this time. However, I warmly welcome everyone to submit issues and suggestions! Your feedback is crucial for me to improve the project.
+Due to certain constraints, the source code is not currently open-source. However, contributions in the form of issues and suggestions are highly encouraged! Your feedback is invaluable for improving this project.
 ### Disclaimer
 This tool is only intended for security research. Users are responsible for all legal and related liabilities resulting from the use of this tool. The original author does not assume any legal responsibility.
