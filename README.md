@@ -2,7 +2,7 @@
 ### Overview
 `zp-crack` is a powerful command-line tool designed for security professionals and researchers. It facilitates the cracking of various services, enabling users to test the strength of passwords across multiple protocols.
 ### Features
-- **Supported Services**
+- **Supported Services(36 total)**
   - ftp, ssh, telnet, smtp, httpbasic, pop3, wmi, imap, snmp, ldap, smb, smtpssl, rtsp, rsync, imapssl, pop3ssl, socks5, sqlserver, oracle, mqtt, mysql, rdp, postgresql, amqp, vnc, winrm, redis, memcached, mongodb, tomcat, weblogic, jenkins, gitlab, nacos, nexus, svn
 - **Flexible Service Input**
   - Default Port-Service Format: Use the default port-service format when specifying an IP address (e.g., `-i 10.1.2.5:3306`). This format must correspond to the services listed in the **Default Port-Service Mapping** section.
@@ -19,14 +19,14 @@ Usage:
   zp-crack crack [flags]
 
 Examples:
-./zp-crack crack -i 10.1.2.5:3306
-./zp-crack crack -i 10.1.2.6:3307---mysql
-./zp-crack crack -i 10.1.2.7:7001---weblogic
-./zp-crack crack -i 10.1.2.8:443---gitlab
-./zp-crack crack -i 10.1.2.5:3306,10.1.2.6:3307---mysql
-./zp-crack crack -f input.txt
-./zp-crack crack -f input.txt --proxy socks5://127.0.0.1:8888
-./zp-crack crack -f input.txt --proxy socks5://admin:admin@127.0.0.1:8888
+  ./zp-crack crack -i 10.1.2.5:3306
+  ./zp-crack crack -i 10.1.2.6:3307---mysql
+  ./zp-crack crack -i 10.1.2.7:7001---weblogic
+  ./zp-crack crack -i 10.1.2.8:443---gitlab
+  ./zp-crack crack -i 10.1.2.5:3306,10.1.2.6:3307---mysql
+  ./zp-crack crack -f input.txt
+  ./zp-crack crack -f input.txt --proxy socks5://127.0.0.1:8888
+  ./zp-crack crack -f input.txt --proxy socks5://admin:admin@127.0.0.1:8888
 
 Flags:
       --crack-all           crack all user and pass
